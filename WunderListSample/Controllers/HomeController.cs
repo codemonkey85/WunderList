@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using WunderListSample.Models;
+using Newtonsoft.Json;
 
 namespace WunderListSample.Controllers
 {
@@ -11,6 +14,12 @@ namespace WunderListSample.Controllers
     {
         public ActionResult Index()
         {
+
+            string str = System.IO.File.ReadAllText(@"F:\Project\WunderList\WunderListSample\File\data.txt");
+            var data = JsonConvert.DeserializeObject<Rootobject>(str);
+
+         
+
             return View();
         }
 
