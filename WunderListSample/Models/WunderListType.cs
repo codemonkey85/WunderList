@@ -8,7 +8,8 @@ namespace WunderListSample.Models
     public enum WunderListType
     {
         List,
-        Task
-
+        Task,
+        SubTask,
+        Node
     }
 }
