@@ -15,7 +15,8 @@ namespace WunderListSample.Controllers
     {
         public ActionResult Index()
         {
-            GenerateDatabase();
+            //GenerateDatabase();
+
             using (var db = new DbFactory())
             {
                 var list = db.WunderListItems.ToList();
@@ -93,6 +94,11 @@ namespace WunderListSample.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult GetTask() {
+    
         }
     }
 }
