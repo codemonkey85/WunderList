@@ -98,7 +98,12 @@ namespace WunderListSample.Controllers
 
         [HttpPost]
         public JsonResult GetTask() {
-    
+               using (var db = new DbFactory()) {
+                   var task = db.WunderTasks.ToList();
+                   task = task.Where(p => p.CreateAt.Month == 5).ToList();
+                   return Json(task);
+                }
+            
         }
     }
 }
