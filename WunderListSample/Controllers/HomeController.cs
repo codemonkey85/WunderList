@@ -15,7 +15,8 @@ namespace WunderListSample.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {       
+        {
+            //GenerateDatabase();
             using (var db = new DbFactory())
             {
                 var list = db.WunderListItems.ToList();
@@ -28,7 +29,7 @@ namespace WunderListSample.Controllers
 
         private void GenerateDatabase()
         {
-            string filePath = Server.MapPath("~/File/data.txt");
+            string filePath = Server.MapPath("~/Db/WunderListJosn.txt");
             StreamReader reader = new StreamReader(filePath, System.Text.Encoding.Default);
 
             var d = JsonConvert.DeserializeObject<Rootobject>(reader.ReadToEnd());
@@ -84,7 +85,7 @@ namespace WunderListSample.Controllers
                DateTime dt = DateTime.Now;         
                using (var db = new DbFactory()) {
                    var task = db.WunderTasks.ToList();
-                   task = task.Where(p => p.CreateAt.Month == dt.Month && p.ListId == "148182326").OrderByDescending(p=>p.CreateAt).ToList();
+                   task = task.Where(p => p.CreateAt.Month == dt.Month && p.ListId == "148182326").OrderByDescending(p => p.CreateAt).ToList();
                    return Json(task);
                 }
             

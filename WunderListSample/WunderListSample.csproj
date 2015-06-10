@@ -180,7 +180,6 @@
     <Content Include="Content\offcanvas.css" />
     <Content Include="Db\WunderListJosn.txt" />
     <Content Include="favicon.ico" />
-    <Content Include="File\data.txt" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -188,7 +187,6 @@
     <Content Include="Img\dot.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="File\wunderlist-2015065-16-55-47.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

@@ -20,8 +20,13 @@
                             async: false,
                             data:'taskId='+item.TaskId,
                             success: function (subTaskData) {
-                                $.each(subTaskData, function (index,itemdata) {
-                                    subTask = subTask + '<li class="list-group-item list-group-item-warning">' + itemdata.Title + '</li>';
+                                $.each(subTaskData, function (index, itemdata) {
+                                    if (itemdata.IsCompleted) {
+                                        subTask = subTask + '<li class="list-group-item ">' + itemdata.Title + '</li>';
+                                    } else {
+                                        subTask = subTask + '<li class="list-group-item list-group-item-info">' + itemdata.Title + '</li>';
+                                    }
+                             
                                 })
                                 subTask = subTask + '</ul></div>';
                             }
