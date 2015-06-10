@@ -12,7 +12,22 @@
                 dataType: 'JSON',
                 success: function (data) {         
                     $.each(data, function (index, item) {
-                        $("#list").append('<li class="list-group-item" >' + item.Title + '</li>');
+                        var subTask = ' <div class="panel-body"><ul class="list-group">';
+                        $.ajax({
+                            url: '@Url.Action("GetSubTask")',
+                            type: "POST",
+                            dataType: 'JSON',
+                            async: false,
+                            data:'taskId='+item.TaskId,
+                            success: function (subTaskData) {
+                                $.each(subTaskData, function (index,itemdata) {
+                                    subTask = subTask + '<li class="list-group-item list-group-item-warning">' + itemdata.Title + '</li>';
+                                })
+                                subTask = subTask + '</ul></div>';
+                            }
+                        })
+                        $("#WunderList").append('<div class="panel panel-primary"> <div class="panel-heading"> <h3 class="panel-title">' + item.Title + '</h3></div> ' + subTask);
+
                     })
                 }
             })
@@ -22,10 +37,7 @@
 </p>
 <div class="container">
     <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-xs-12 col-sm-9">
-            <div class="jumbotron">
-                <ul id="list" class="list-group"></ul>
-            </div>         
+        <div class="col-xs-12 col-sm-9" id="WunderList">
         </div>
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
             <div class="list-group">

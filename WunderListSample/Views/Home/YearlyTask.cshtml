@@ -1,0 +1,87 @@
+﻿@using WunderListSample.ViewModel;
+@model List<WunderlistItemViewModel>
+
+@{
+    ViewBag.Title = "YearlyTask";
+}
+<p></p><p></p>
+@for(int i = 0; i < 4; i++) 
+{
+    <div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-default panel-primary">
+            <div class="panel-heading ">
+                <h3 class="panel-title" >2015年@(3 * i + 1)月</h3>
+            </div>
+            <div class="panel-body" style="height: 400px">
+                <ul class="list-group">
+                    @{
+    var index = 3 * i;
+    if (index < Model.Count)
+    {
+        foreach (var item in Model[index].WunderTasks)
+        {
+            <li class='@(item.IsCompleted?"list-group-item":"list-group-item list-group-item-info")'>
+                @item.Title
+            </li>
+        }
+    }
+}
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">2015年@(3 * i + 2)月</h3>
+            </div>
+            <div class="panel-body" style="height:400px">
+                <ul class="list-group">
+                    @{
+               var index2 = 3 * i + 1;
+               if (index2 < Model.Count)
+               {
+                   foreach (var item in Model[index2].WunderTasks)
+                   {
+            <li class='@(item.IsCompleted?"list-group-item":"list-group-item list-group-item-info")'>
+                        @item.Title
+                    </li>
+                   }
+               }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4" >
+            <div class="panel panel-default panel-primary" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">2015年@(3 * i + 3)月</h3>
+                </div>
+                <div class="panel-body" style="height: 400px">
+                    <ul class="list-group">
+                        @{
+               var index3 = 3 * i + 2;
+               if (index3 < Model.Count)
+               {
+                   foreach (var item in Model[index3].WunderTasks)
+                   {
+                 <li class='@(item.IsCompleted ? "list-group-item " : "list-group-item list-group-item-info")'>
+                        @item.Title
+                    </li>
+                   }
+               }
+               else
+               {
+
+               }
+
+}
+                    </ul>
+                </div>
+            </div>
+        </div>
+</div>
+}

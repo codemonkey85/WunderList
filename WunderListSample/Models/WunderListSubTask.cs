@@ -15,5 +15,6 @@ namespace WunderListSample.Models
         public string TaskId { get; set; }
         public bool IsCompleted { get; set; }
         public string Title { get; set; }
+  
     }
 }

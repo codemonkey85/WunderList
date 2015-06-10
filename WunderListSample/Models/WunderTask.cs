@@ -17,6 +17,8 @@ namespace WunderListSample.Models
         //Refer to ListItem Id
         public string ListId { get; set; }
 
+        public string TaskId { get; set; }
+
         public string Title { get; set; }
 
         public bool IsCompleted { get; set; }
