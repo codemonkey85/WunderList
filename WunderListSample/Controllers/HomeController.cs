@@ -16,6 +16,7 @@ namespace WunderListSample.Controllers
     {
         public ActionResult Index()
         {
+            //GenerateBook();
             //GenerateDatabase();
             using (var db = new DbFactory())
             {
@@ -80,6 +81,30 @@ namespace WunderListSample.Controllers
             }
         }
 
+        private void GenerateBook() {
+            string filePath = Server.MapPath("~/Db/WunderListJosn.txt");
+            StreamReader reader = new StreamReader(filePath, System.Text.Encoding.Default);
+
+            var d = JsonConvert.DeserializeObject<Rootobject>(reader.ReadToEnd());
+            var listdata = d.data.lists;
+            var taskdata = d.data.tasks;
+            var subtaskdata = d.data.subtasks;
+            using (var db = new DbFactory())
+            {
+                var task = taskdata.Where(p => p.list_id ==143779280).ToList();
+                foreach (var t in task) {
+                    Book b = new Book();
+                    b.BookName = t.title;
+                    b.BookTaskId = t.id.ToString();
+                    b.IsCompleted = t.completed;
+                    b.Create_Begin = t.created_at;
+                    b.BookConverUrl = "";
+                    db.Books.Add(b);
+                }
+                db.SaveChanges();
+            }
+        }
+
         [HttpPost]
         public JsonResult GetTask() {
                DateTime dt = DateTime.Now;         
@@ -121,7 +146,11 @@ namespace WunderListSample.Controllers
         }
 
         public ActionResult BookList() {
-            return View();
+            using (var db = new DbFactory())
+            {
+                return View(db.Books.ToList());
+            }
+        
         }
     }
 }

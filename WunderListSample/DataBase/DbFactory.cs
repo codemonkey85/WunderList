@@ -24,5 +24,7 @@ namespace WunderListSample.DataBase
         public DbSet<WunderTask> WunderTasks { get; set; }
         public DbSet<WunderListSubTask> WunderListSubTasks { get; set; }
 
+        public DbSet<Book> Books { get; set; }
+
     }
 }

@@ -163,6 +163,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506100541496_InitialCreate.cs" />
+    <Compile Include="Migrations\201506100541496_InitialCreate.Designer.cs">
+      <DependentUpon>201506100541496_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506100635269_AddBook.cs" />
+    <Compile Include="Migrations\201506100635269_AddBook.Designer.cs">
+      <DependentUpon>201506100635269_AddBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506100646217_AddNewField.cs" />
+    <Compile Include="Migrations\201506100646217_AddNewField.Designer.cs">
+      <DependentUpon>201506100646217_AddNewField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506100658521_AllowNull.cs" />
+    <Compile Include="Migrations\201506100658521_AllowNull.Designer.cs">
+      <DependentUpon>201506100658521_AllowNull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Book.cs" />
     <Compile Include="Models\WunderJson.cs" />
     <Compile Include="Models\WunderListItem.cs" />
     <Compile Include="Models\WunderListSubTask.cs" />
@@ -227,6 +245,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\YearlyTask.cshtml" />
+    <Content Include="Views\Home\BookList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -237,6 +256,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201506100541496_InitialCreate.resx">
+      <DependentUpon>201506100541496_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506100635269_AddBook.resx">
+      <DependentUpon>201506100635269_AddBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506100646217_AddNewField.resx">
+      <DependentUpon>201506100646217_AddNewField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506100658521_AllowNull.resx">
+      <DependentUpon>201506100658521_AllowNull.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<WunderListSample.Models.Book>
+
+@{
+    ViewBag.Title = "BookList";
+}
+
+<h2>BookList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BookName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookTaskId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsCompleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookConverUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Create_Begin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Create_End)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookTaskId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsCompleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookConverUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Create_Begin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Create_End)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
